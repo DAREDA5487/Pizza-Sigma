@@ -1,0 +1,1001 @@
+:root {
+  --red: #c8281a;
+  --red-light: #e8382a;
+  --cream: #f5ecd7;
+  --cream-dark: #ead9be;
+  --brown: #2a1a0e;
+  --brown-mid: #5c3820;
+  --warm-gray: #8a7b6e;
+  --gold: #c9913a;
+  --white: #fdfaf4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+  overflow-x: hidden;
+}
+
+/* ============ LOADING ============ */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: var(--brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s;
+}
+#loading.gone {
+  opacity: 0;
+  visibility: hidden;
+}
+.load-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4rem;
+  color: var(--cream);
+  letter-spacing: 0.15em;
+  animation: loadPulse 1s ease-in-out infinite alternate;
+}
+@keyframes loadPulse {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============ SCROLL PROGRESS ============ */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--red);
+  z-index: 10000;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ============ HEADER ============ */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 3rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition:
+    background 0.4s,
+    box-shadow 0.4s;
+}
+header.solid {
+  background: rgba(245, 236, 215, 0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(42, 26, 14, 0.1);
+}
+
+.logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: var(--brown);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.logo span {
+  color: var(--red);
+}
+
+nav {
+  display: flex;
+  gap: 2.5rem;
+}
+nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--brown);
+  position: relative;
+  transition: color 0.3s;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  transition: width 0.3s;
+}
+nav a:hover {
+  color: var(--red);
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--brown);
+  transition: 0.3s;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  background: var(--brown);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 4rem 4rem 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 0.95;
+  color: var(--cream);
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+}
+
+.hero h1 em {
+  font-family: "DM Serif Display", serif;
+  font-style: italic;
+  color: var(--red-light);
+}
+
+.hero-desc {
+  color: var(--warm-gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 380px;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+}
+.btn-primary:hover {
+  background: var(--red-light);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  color: var(--cream);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ======= HERO PHOTO SLOT ======= */
+/* GANTI URL DI BAWAH INI DENGAN PATH FOTO HERO KAMU */
+/* Contoh: background-image: url('foto-hero.jpg'); */
+.hero-img-slot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #3d1f0a 0%, #1a0a03 60%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--warm-gray);
+}
+.hero-img-placeholder .ph-icon {
+  font-size: 5rem;
+  opacity: 0.3;
+}
+.hero-img-placeholder .ph-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* UNTUK MENAMBAH FOTO HERO:
+           1. Hapus div.hero-img-placeholder
+           2. Uncomment tag <img> di bawahnya
+           3. Ganti src dengan path foto kamu
+        */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--brown) 0%, transparent 30%);
+  z-index: 1;
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  z-index: 3;
+  width: 110px;
+  height: 110px;
+  border: 2px solid rgba(201, 145, 58, 0.4);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: rotateBadge 20s linear infinite;
+}
+@keyframes rotateBadge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hero-badge-inner {
+  position: absolute;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  width: 100%;
+  text-align: center;
+  animation: rotateBadge 20s linear infinite reverse;
+}
+
+/* ============ SECTION BASE ============ */
+section {
+  position: relative;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1;
+  color: var(--brown);
+  letter-spacing: 0.04em;
+}
+
+.section-title em {
+  font-family: "DM Serif Display", serif;
+  font-style: italic;
+  color: var(--red);
+}
+
+/* ============ MENU ============ */
+.menu-section {
+  padding: 120px 0;
+  background: var(--white);
+}
+
+.menu-header {
+  padding: 0 5rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.menu-intro {
+  max-width: 500px;
+}
+
+.menu-subtitle {
+  color: var(--warm-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 0 5rem;
+}
+
+.menu-card {
+  border: 1px solid var(--cream-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: background 0.3s;
+  cursor: default;
+}
+.menu-card:hover {
+  background: var(--cream);
+}
+
+/* ======= MENU PHOTO SLOTS ======= */
+/* Setiap .menu-photo adalah slot foto untuk item menu */
+.menu-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+.menu-card:hover .menu-photo img {
+  transform: scale(1.05);
+}
+
+/* Placeholder jika belum ada foto */
+.menu-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 3.5rem;
+  position: relative;
+}
+
+/* Warna background berbeda tiap item */
+.menu-card:nth-child(1) .menu-photo-placeholder {
+  background: #e8d5c0;
+}
+.menu-card:nth-child(2) .menu-photo-placeholder {
+  background: #d4c4b0;
+}
+.menu-card:nth-child(3) .menu-photo-placeholder {
+  background: #c9b89e;
+}
+.menu-card:nth-child(4) .menu-photo-placeholder {
+  background: #d9c5a8;
+}
+.menu-card:nth-child(5) .menu-photo-placeholder {
+  background: #e2d0b5;
+}
+.menu-card:nth-child(6) .menu-photo-placeholder {
+  background: #ccb898;
+}
+
+.ph-label {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(42, 26, 14, 0.35);
+  font-family: "DM Sans", sans-serif;
+  white-space: nowrap;
+}
+
+.menu-card-body {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.menu-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.menu-name {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.3rem;
+  color: var(--brown);
+  line-height: 1.2;
+}
+
+.menu-price {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.4rem;
+  color: var(--red);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.menu-desc {
+  font-size: 0.88rem;
+  color: var(--warm-gray);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+.menu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--cream-dark);
+  color: var(--brown-mid);
+  border-radius: 2px;
+}
+
+.menu-order-btn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--brown);
+  color: var(--brown);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+}
+.menu-order-btn:hover {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+/* ============ ABOUT ============ */
+.about-section {
+  padding: 120px 5rem;
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+}
+
+/* ======= ABOUT PHOTO SLOT ======= */
+/* UNTUK MENAMBAH FOTO ABOUT:
+           - Lihat di dalam .about-img-main dan .about-img-accent di HTML
+           - Ganti div.about-ph dengan <img src="path/foto.jpg" ...>
+        */
+.about-img-main {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 2px;
+  position: relative;
+}
+
+.about-img-main img,
+.about-img-accent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.about-img-main .about-ph {
+  background: #d4c0a5;
+}
+.about-img-accent .about-ph {
+  background: #b89f83;
+}
+
+.about-ph .ph-icon {
+  font-size: 4rem;
+  opacity: 0.25;
+}
+.about-ph .ph-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(42, 26, 14, 0.4);
+}
+
+.about-img-accent {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  width: 55%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 5px solid var(--cream);
+  border-radius: 2px;
+}
+
+.about-year-badge {
+  position: absolute;
+  top: 2rem;
+  left: -2rem;
+  background: var(--red);
+  color: var(--white);
+  padding: 1.5rem;
+  text-align: center;
+  z-index: 2;
+}
+.about-year-badge .year {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  display: block;
+}
+.about-year-badge .since {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.about-content {
+}
+
+.about-content .section-title {
+  margin-bottom: 2rem;
+}
+
+.about-lead {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--brown-mid);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--red);
+  padding-left: 1.5rem;
+}
+
+.about-body {
+  font-size: 0.95rem;
+  color: var(--warm-gray);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--cream-dark);
+}
+
+.stat-item {
+}
+.stat-num {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  color: var(--red);
+  letter-spacing: 0.05em;
+  display: block;
+}
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+/* ============ TESTIMONIALS ============ */
+.testi-section {
+  padding: 120px 0;
+  background: var(--brown);
+  overflow: hidden;
+}
+
+.testi-header {
+  padding: 0 5rem;
+  margin-bottom: 4rem;
+}
+.testi-header .section-title {
+  color: var(--cream);
+}
+.testi-header .section-label {
+  color: var(--gold);
+}
+
+.testi-scroll {
+  display: flex;
+  gap: 2rem;
+  padding: 0 5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.testi-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.testi-card {
+  flex-shrink: 0;
+  width: 360px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 2px;
+}
+
+.testi-stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.testi-quote {
+  font-family: "DM Serif Display", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--cream);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.testi-author {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+/* ============ CONTACT ============ */
+.contact-section {
+  padding: 120px 5rem;
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.contact-info .section-title {
+  margin-bottom: 2rem;
+}
+
+.contact-desc {
+  color: var(--warm-gray);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.contact-item:last-of-type {
+  border-bottom: none;
+}
+
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 0.3rem;
+}
+
+.contact-val {
+  font-size: 0.95rem;
+  color: var(--brown);
+  font-weight: 500;
+}
+
+/* FORM */
+.contact-form {
+  align-self: start;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid var(--cream-dark);
+  background: var(--white);
+  font-size: 0.95rem;
+  font-family: "DM Sans", sans-serif;
+  color: var(--brown);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--red);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--brown);
+  color: var(--cream);
+  border: none;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.submit-btn:hover {
+  background: var(--red);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--brown);
+  padding: 3rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+}
+.footer-logo span {
+  color: var(--red);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--warm-gray);
+  letter-spacing: 0.08em;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--warm-gray);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+.social-btn:hover {
+  border-color: var(--red);
+  color: var(--cream);
+}
+
+/* ============ REVEAL ANIMATION ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+.reveal.shown {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-right {
+    display: none;
+  }
+  .hero-left {
+    padding: 120px 2rem 4rem;
+  }
+  nav,
+  .hamburger {
+    display: flex;
+  }
+  nav {
+    display: none;
+  }
+  nav.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--cream);
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  header {
+    padding: 0 2rem;
+  }
+  .menu-header {
+    padding: 0 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr;
+    padding: 0 2rem;
+  }
+  .about-section {
+    grid-template-columns: 1fr;
+    padding: 80px 2rem;
+    gap: 4rem;
+  }
+  .about-img-accent {
+    right: 0;
+  }
+  .contact-section {
+    grid-template-columns: 1fr;
+    padding: 80px 2rem;
+    gap: 3rem;
+  }
+  footer {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem;
+  }
+  .testi-header {
+    padding: 0 2rem;
+  }
+  .testi-scroll {
+    padding: 0 2rem;
+  }
+}

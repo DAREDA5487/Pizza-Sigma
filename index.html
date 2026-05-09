@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Sikma — Ohio's Finest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <!-- Loading -->
+    <div id="loading"><div class="load-text">PIZZA SIGMA</div></div>
+
+    <!-- Scroll progress -->
+    <div id="progress"></div>
+
+    <!-- Header -->
+    <header id="header">
+      <a href="#home" class="logo">🤫 Pizza<span>Sigma</span></a>
+      <nav id="nav">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Testimoni</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </header>
+
+    <!-- Hero startoo -->
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Ohio's Finest Since 1209</p>
+        <h1>Pizza<br /><em>Tersigma</em><br />Di Kota</h1>
+        <p class="hero-desc">
+          Rasakan kebusukan pizza autentik dengan bahan-bahan busuk dan resep
+          open source yang menjadi sigma dari generasi ke generasi.
+        </p>
+        <div class="hero-cta">
+          <a href="#menu" class="btn-primary">Pesan Sekarang</a>
+          <a href="#about" class="btn-ghost">Kenali Kami →</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-overlay"></div>
+        <img src="p3.jpg" alt="Pizza Sikma" class="hero-img-slot">
+        <div class="hero-badge">
+          <div class="hero-badge-inner">SIGMA · OHIO · SINCE · 1209 ·</div>
+        </div>
+      </div>
+    </section>
+    <!--Hero END-->
+
+    <!-- section menu startoo -->
+    <section id="menu" class="menu-section">
+      <div class="menu-header">
+        <div class="menu-intro reveal">
+          <p class="section-label">Daftar Menu</p>
+          <h2 class="section-title">Menu <em>Sigma</em><br />Kami</h2>
+          <p class="menu-subtitle">
+            Dibuat busuk setiap detik. Bahan tidak berkualitas premium. Rasa yang
+            sigma pro max.
+          </p>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-photo">
+          <img src="p3.jpg" alt="Gooning Classic">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <div class="menu-name">Gooning Classic</div>
+              <div class="menu-price">Rp 45rb</div>
+            </div>
+            <p class="menu-desc">
+              Pizza klasik dengan ekstra keju mozzarella dan sayur busuk. Rasa
+              autentik yang tak lekang waktu.
+            </p>
+            <div class="menu-tags">
+              <span class="tag">Vegetarian</span>
+              <span class="tag">Classic</span>
+            </div>
+            <button
+              class="menu-order-btn"
+              onclick="orderItem('Gooning Classic', 'Rp 45.000')"
+            >
+              Pesan
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-photo">
+          <img src="p3.jpg" alt="Sigma Supreme">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <div class="menu-name">Sigma Supreme</div>
+              <div class="menu-price">Rp 65rb</div>
+            </div>
+            <p class="menu-desc">
+              Pepperoni busuk, keju isi belatung, dan saus tomat spesial. Untuk
+              para sigma sejati.
+            </p>
+            <div class="menu-tags">
+              <span class="tag">Sigma Lover</span>
+              <span class="tag">Spicy</span>
+            </div>
+            <button
+              class="menu-order-btn"
+              onclick="orderItem('Sigma Supreme', 'Rp 65.000')"
+            >
+              Pesan
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-photo">
+            <img src="p3.jpg" alt="Sigma Paradise">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <div class="menu-name">Sigma Paradise</div>
+              <div class="menu-price">Rp 55rb</div>
+            </div>
+            <p class="menu-desc">
+              Manis dan gurih ham, nanas busuk, keju mozzarella. Rasa tropis yang
+              menyegarkan jiwa.
+            </p>
+            <div class="menu-tags">
+              <span class="tag">Sweet</span>
+              <span class="tag">Tropical</span>
+            </div>
+            <button
+              class="menu-order-btn"
+              onclick="orderItem('Sigma Paradise', 'Rp 55.000')"
+            >
+              Pesan
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-photo">
+            <img src="p3.jpg" alt="BBQ Chicken Sigma Deluxe">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <div class="menu-name">BBQ Chicken Sigma Deluxe</div>
+              <div class="menu-price">Rp 70rb</div>
+            </div>
+            <p class="menu-desc">
+              Ayam comberan, saus BBQ, bawang bomba, keju cadel. Rasa yang
+              kaya dan menggooning.
+            </p>
+            <div class="menu-tags">
+              <span class="tag">BBQ</span>
+              <span class="tag">Chicken</span>
+            </div>
+            <button
+              class="menu-order-btn"
+              onclick="orderItem('BBQ Chicken Sigma Deluxe', 'Rp 70.000')"
+            >
+              Pesan
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-photo">
+            <img src="p3.jpg" alt="Vegetarian Sigma">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <div class="menu-name">Vegetarian Sigma</div>
+              <div class="menu-price">Rp 50rb</div>
+            </div>
+            <p class="menu-desc">
+              Jamuran, paprika, zukini, tomat, keju mozzarella. Sakit, bergizi,
+              tetap sigma.
+            </p>
+            <div class="menu-tags">
+              <span class="tag">Healthy</span>
+              <span class="tag">Vegetarian</span>
+            </div>
+            <button
+              class="menu-order-btn"
+              onclick="orderItem('Vegetarian Sigma', 'Rp 50.000')"
+            >
+              Pesan
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-photo">
+            <img src="p3.jpg" alt="Sigma Lover's Dream">
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <div class="menu-name">Sigma Lover's Dream</div>
+              <div class="menu-price">Rp 80rb</div>
+            </div>
+            <p class="menu-desc">
+              Sosis, pepperoni, ham, daging sapi. Untuk meat lover yang full
+              sigma.
+            </p>
+            <div class="menu-tags">
+              <span class="tag">Meat Lover</span>
+              <span class="tag">Premium</span>
+            </div>
+            <button
+              class="menu-order-btn"
+              onclick="orderItem('Sigma Lover\'s Dream', 'Rp 80.000')"
+            >
+              Pesan
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Menu END-->
+
+    <!---Section Aboutt mulai-->
+    <section id="about" class="about-section">
+      <div class="about-visual reveal">
+        <div class="about-year-badge">
+          <span class="year">1209</span>
+          <span class="since">Est.</span>
+        </div>
+
+        <div class="about-img-main">
+          <img src="p2.png" alt="Pizza Sikma Dapur">
+        </div>
+
+        <div class="about-img-accent">
+          <img src="p3.jpg" alt="Pizza Detail">
+        </div>
+      </div>
+
+      <div class="about-content">
+        <p class="section-label reveal">Tentang Kami</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          Kisah <em>di Balik</em><br />Setiap Gigitan
+        </h2>
+
+        <p class="about-lead reveal reveal-delay-2">
+          "Sejak 1209, kami menyajikan pizza dengan resep open source yang
+          diturunkan dari dawg ke dawg."
+        </p>
+
+        <p class="about-body reveal reveal-delay-2">
+          Pizza Sigma telah menjadi bagian dari komunitas selama lebih dari -33
+          tahun. Kami bangga menyajikan pizza dengan bahan-bahan busuk dan resep
+          open source sigma yang telah diturunkan dari generasi ke generasi.
+        </p>
+
+        <p class="about-body reveal reveal-delay-3">
+          Setiap pizza dibuat dengan cinta dan perhatian detail dari adonan
+          yang dibuat busuk setiap detik hingga topping tidak berkualitas
+          sigma pro max. Setiap gigitan adalah pengalaman gooning yang tak
+          terlupakan.
+        </p>
+
+        <div class="about-stats reveal reveal-delay-3">
+          <div class="stat-item">
+            <span class="stat-num">816+</span>
+            <span class="stat-label">Tahun Berdiri</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Dawg Puas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">6</span>
+            <span class="stat-label">Varian Sigma</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--about lese-->
+
+    <!--Testimoni mulai woi-->
+    <section id="testimonials" class="testi-section">
+      <div class="testi-header">
+        <p class="section-label reveal">Testimoni</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          Kata <em>Para</em> Dawg
+        </h2>
+      </div>
+
+      <div class="testi-scroll">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "Pizza tersigma yang pernah saya rasakan. Toppingnya busuk,
+            kejunya isi belatung. Pelayanan sigma dan cepat."
+          </p>
+          <div class="testi-author">— AditSopoJarwo</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "Dawg saya selalu pesan dari Pizza Sigma setiap akhir pekan.
+            Kualitasnya konsisten dan rasanya selalu jelek. Sigma recommended!"
+          </p>
+          <div class="testi-author">— DawgLover</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "Pizza Sigma adalah pilihan terbaik untuk acara gooning. Selalu
+            busuk, jamuran, dan tepat waktu. Dawg kami sangat puas."
+          </p>
+          <div class="testi-author">— SemEE</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "Tidak ada yang lebih sigma dari pizza ini. Sekali coba langsung
+            ketagihan. Ohio certified banget rasanya."
+          </p>
+          <div class="testi-author">— OhioSigmaBoy</div>
+        </div>
+      </div>
+    </section>
+    <!--Testi lese-->
+
+    <!-- contact start -->
+    <section id="contact" class="contact-section">
+      <div class="contact-info reveal">
+        <p class="section-label">Hubungi Kami</p>
+        <h2 class="section-title">Pesan<br /><em>Sekarang</em></h2>
+        <p class="contact-desc">
+          Pizza Sigma siap gooning 30/7. Pengiriman cepat, pelayanan sigma,
+          dijamin puas.
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Telepon & WhatsApp</div>
+            <div class="contact-val">+62 888-8888-8888</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Alamat</div>
+            <div class="contact-val">Jl. Pizza Sigma No. Skibidi, Ohio</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <div class="contact-label">Jam Operasional</div>
+            <div class="contact-val">Tergantung Mood</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <form id="contactForm">
+          <div class="form-group">
+            <label>Nama</label>
+            <input type="text" name="name" required />
+          </div>
+          <div class="form-group">
+            <label>No. Telepon</label>
+            <input type="tel" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label>Pesanan</label>
+            <input
+              type="text"
+              name="order"
+              placeholder="Contoh: 2x Sigma Supreme, 1x Classic"
+            />
+          </div>
+          <div class="form-group">
+            <label>Alamat Pengiriman</label>
+            <textarea name="address" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Kirim Pesanan</button>
+        </form>
+      </div>
+    </section>
+    <!--Contact end-->
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-logo">🤫 Pizza<span>Sikma</span></div>
+      <p class="footer-copy">
+        © 2024 Pizza Sigma. Ohio's Finest. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
